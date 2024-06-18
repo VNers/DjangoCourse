@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sungrilla</title>
+    {% load static %}
+    <style>
+        h1:hover {
+            transform: scale(1.05);
+        }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Sungrilla Secret Beach</h1>
+    </header>
+    <section>
+            <div class="nav-buttons">
+                <a href="{% url 'locations' %}"><b>Локації</b></a>
+                <a href="{% url 'menu' %}"><b>Меню</b></a>
+                <a href="{% url 'price' %}"><b>Price</b></a>
+                <a href="{% url 'booking' %}"><b>Бронювання та передзамовлення</b></a>
+                <a href="{% url 'how_to_find_us' %}"><b>Як нас знайти</b></a>
+            </div>
+        
+    <p class="styled-text">
+        Sungrilla Secret Beach — це неповторне місце на березі річки Дніпро, яке вражає своєю природною красою і спокоєм. 
+        Розташований вдало віддалено від міської гамірності, наш заклад пропонує унікальну можливість відпочити 
+        в середовищі, де природа дарує свої найяскравіші барви.</p>
+    <p class="styled-text"> 
+        Зелені дерева та рослини доповнюють живописний вигляд річкового узбережжя, створюючи ідеальну обстановку 
+        для відпочинку.</p>
+        <img src="{% static 'images/ad.jpg' %}" alt="Home">
+    <p class="styled-text">
+        Крім того, Sungrilla Secret Beach пропонує різноманітні розваги та послуги для гостей.
+        Ви можете провести час в комфортних зонах для відпочинку, або спробувати страви від нашого шеф-кухаря, 
+        які приготовані з найсвіжіших інгредієнтів. </p>
+    <p class="styled-text">
+        <b><span>#keepitsecret</span></b>
+        Знайдіть нас в Instagram: <a href="https://www.instagram.com/sungrilla/" target="_blank" style="color: #1b1b1b;">@sungrilla</a></p>
+        
+    </section>
+    <footer>
+        <p>Контакти: +38 (073) 187 74 79</p>
+        <p>Адреса: Набережно-Хрещатицька вулиця, 10, Київ, Україна.</p>
+    </footer>
+</body>
+</html>

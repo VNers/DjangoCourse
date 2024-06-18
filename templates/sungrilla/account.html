@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мій кабінет</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <h1>Профіль користувача</h1>
+    <p>Ім'я: {{ user_profile.first_name }}</p>
+    <p>Прізвище: {{ user_profile.last_name }}</p>
+    <p>Email: {{ user_profile.email }}</p>
+    <p>Номер телефону: {{ user_profile.phone_number }}</p>
+    <p>Адреса: {{ user_profile.address }}</p>
+
+    <h2>Замовлення</h2>
+    <ul>
+        {% for order in orders %}
+            <li>{{ order.product.name }} - {{ order.quantity }} шт. ({{ order.created_at }})</li>
+        {% endfor %}
+    </ul>
+
+    {% if error_message %}
+    <h1>Помилка</h1>
+    <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

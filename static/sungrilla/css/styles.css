@@ -1,0 +1,338 @@
+body {
+    font-family: Cambria, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(100deg, #6666cc, #9966cc);
+    text-align: center;
+}
+
+header {
+    background: linear-gradient(rgba(205, 193, 255, 0.8), rgba(255, 255, 255, 0.8));
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+    border-radius: 10px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header .home-link {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+header .home-link a {
+    text-decoration: none;
+    color: #000000;
+    background-color: #cdc1ff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+header .home-link a:hover {
+    background-color: #FFFFFF;
+    text-align: left;
+}
+
+nav.home-link a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.booking {
+    margin: 20px;
+}
+
+.booking h1 {
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.booking table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.booking th, .booking td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.booking th {
+    background-color: #333;
+    color: #fff;
+}
+
+.booking tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.booking button {
+    background-color: #cdc1ff;
+    color: #000000;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.booking button:hover {
+    background-color: #FFFFFF;
+}
+
+.form-container {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 5px;
+    color: #666;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: #cdc1ff;
+    color: #000000;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.cart {
+    margin: 20px;
+    text-align: center;
+}
+
+.cart h2 {
+    margin-bottom: 20px;
+    color: #cdc1ff;
+}
+
+.cart table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: -webkit-center;
+}
+
+.cart th, .cart td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: -webkit-center;
+}
+
+.cart th {
+    background-color: #cdc1ff;
+    color: #000000;
+}
+
+.cart tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.cart button {
+    background-color: #cdc1ff;
+    color: #000000;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.cart button:hover {
+    background-color: #FFFFFF;
+}
+
+.total {
+    margin: 20px;
+    text-align: right;
+}
+
+section {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background: linear-gradient(45deg, #6666cc, #9966cc);
+    color: #000000;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer p {
+    margin: 0;
+}
+
+.price-list {
+    margin: 20px 0;
+    text-align: center;
+    display: inline-block;
+    width: 300px;
+}
+
+.price-list h2 {
+    margin-bottom: 10px;
+    color: #cdc1ff;
+}
+
+.price-list p {
+    margin: 5px 0;
+    color: #000000;
+}
+
+.nav-buttons {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.nav-buttons a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #cdc1ff;
+    color: #000000;
+    text-decoration: blink;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-buttons a:hover {
+    background-color: #FFFFFF;
+}
+
+.location {
+    margin: 20px 0;
+}
+
+.location img {
+    max-width: 100%;
+    height: auto;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.container h2 {
+    color: #1b1b1b; /* Колір можна змінити на будь-який інший */
+}
+
+.login-container {
+    max-width: 450px;
+    margin: 70px auto;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.login-container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.back-to-top a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(153, 102, 204, 0.8);
+    color: #000000;
+    border: none;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    opacity: 0.8;
+}
+
+.back-to-top a:hover {
+    background-color: rgba(126, 84, 159, 0.8);
+    opacity: 1;
+}
+
+.back-to-top svg {
+    fill: currentColor;
+    width: 1em;
+    height: 1em;
+}
+
+.back-to-top a:focus {
+    outline: none;
+}
+.right-text {
+    text-align: right;
+}
+
+.icon {
+    margin-left: 5px;
+    font-size: 5px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+    color: #fff;
+    background: linear-gradient(45deg, #6666cc, #9966cc);
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 20px 0;
+    transition: transform 0.3s ease;
+}
+
+.styled-text {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ffefef;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
