@@ -1,135 +1,131 @@
-body {
-    font-family: Cambria, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(100deg, #6666cc, #9966cc);
-    text-align: center;
-}
-
-header {
-    background: linear-gradient(rgba(205, 193, 255, 0.8), rgba(255, 255, 255, 0.8));
-    color: #000000;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    padding: 10px 0;
-    border-radius: 10px;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-}
-
-header .home-link {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-}
-
-header .home-link a {
-    text-decoration: none;
-    color: #000000;
-    background-color: #cdc1ff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-header .home-link a:hover {
-    background-color: #FFFFFF;
-    text-align: left;
-}
-
-nav.home-link a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 20px;
-}
-
 .booking {
-    margin: 20px;
-}
-
-.booking h1 {
-    margin-bottom: 20px;
-    color: #000000;
+    margin: 15px;
 }
 
 .booking table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .booking th, .booking td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+    border: none;
+    padding: 5px;
+    text-align: center;
+    color: #333333;
 }
 
 .booking th {
-    background-color: #333;
-    color: #fff;
+    background-color: #ffffff;
+    color: #1b1b1b;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.booking tr {
+    border-bottom: 1px solid #cccccc;
+    transition: background-color 0.3s ease;
+}
+
+.booking tr:hover {
+    background-color: #f5f5f5;
 }
 
 .booking tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f9f9f9;
 }
 
-.booking button {
-    background-color: #cdc1ff;
-    color: #000000;
+.booking tr:nth-child(odd) {
+    background-color: #eeeeee;
+}
+
+.booking td {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.booking td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.booking td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.booking-button {
+    background-color: transparent;
+    color: #333333;
     border: none;
-    padding: 8px 16px;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: normal;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-.booking button:hover {
-    background-color: #FFFFFF;
+.booking-button:hover {
+    background-color: #eeeeee;
+}
+
+.booking-button:active {
+    background-color: #c0c0c0;
 }
 
 .form-container {
-    max-width: 400px;
+    max-width: 600px;
     width: 100%;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    color: #333333;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .form-group {
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    width: 100%;
 }
 
 .form-group label {
     display: block;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
+    color: #555555;
 }
 
-.form-group input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 3px;
-    border: 1px solid #ccc;
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 24px);
+    padding: 14px;
+    border-radius: 6px;
+    border: 1px solid #cccccc;
+    outline: none;
+    transition: border-color 0.3s ease;
+    font-size: 16px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #4CAF50;
 }
 
 .form-group small {
     display: block;
-    margin-top: 5px;
-    color: #666;
-}
-
-.btn {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background: #cdc1ff;
-    color: #000000;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
+    margin-top: 4px;
+    color: #999999;
+    font-size: 12px;
 }
 
 .cart {
@@ -139,48 +135,49 @@ nav.home-link a {
 
 .cart h2 {
     margin-bottom: 20px;
-    color: #cdc1ff;
+    color: #ccc;
 }
 
 .cart table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 20px;
-    text-align: -webkit-center;
 }
 
 .cart th, .cart td {
     border: 1px solid #ddd;
     padding: 8px;
-    text-align: -webkit-center;
+    text-align: center;
+    color: #333333;
 }
 
 .cart th {
-    background-color: #cdc1ff;
-    color: #000000;
+    background-color: #cccccc;
+    color: #cccccc;
 }
 
 .cart tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
-.cart button {
-    background-color: #cdc1ff;
-    color: #000000;
-    border: none;
+.cart-button {
+    background-color: transparent;
+    color: #333333;
+    border: 1px solid #ccc;
     padding: 8px 16px;
     cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
 
-.cart button:hover {
-    background-color: #FFFFFF;
+.cart-button:hover {
+    background-color: #cccccc;
 }
 
 .total {
     margin: 20px;
     text-align: right;
+    color: #333333;
 }
 
 section {
@@ -189,14 +186,15 @@ section {
 }
 
 footer {
-    background: linear-gradient(45deg, #6666cc, #9966cc);
-    color: #000000;
+    background: linear-gradient(100deg, #f0f0f0, #eeeeee);
+    color: #333333;
     padding: 10px 0;
     text-align: center;
 }
 
 footer p {
     margin: 0;
+    color: #333333;
 }
 
 .price-list {
@@ -208,32 +206,50 @@ footer p {
 
 .price-list h2 {
     margin-bottom: 10px;
-    color: #cdc1ff;
+    color: #cccccc;
 }
 
 .price-list p {
     margin: 5px 0;
-    color: #000000;
+    color: #333333;
 }
 
 .nav-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin: 20px 0;
-    text-align: center;
 }
 
 .nav-buttons a {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 10px;
-    background-color: #cdc1ff;
-    color: #000000;
-    text-decoration: blink;
+    background-color: transparent;
+    color: #333333;
+    border: none;
+    padding: 10px 103px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    text-decoration: none;
+
 }
 
 .nav-buttons a:hover {
-    background-color: #FFFFFF;
+    background-color: #eeeeee;
+}
+
+.location {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333333;
+}
+
+.styled-text {
+    font-size: 18px;
+    color: #333333;
 }
 
 .location {
@@ -245,25 +261,36 @@ footer p {
     height: auto;
 }
 
+.section-content {
+    margin-top: 80px;
+}
+
 .container {
-    flex: 1;
     display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 20px;
     justify-content: center;
     align-items: center;
-    padding: 10px;
+    margin-top: 30px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #333333;
 }
 
 .container h2 {
-    color: #1b1b1b; /* Колір можна змінити на будь-який інший */
+    color: #1b1b1b;
 }
 
 .login-container {
-    max-width: 450px;
+    max-width: 600px;
     margin: 70px auto;
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.9);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    color: #333333;
 }
 
 .login-container h1 {
@@ -284,8 +311,8 @@ footer p {
     justify-content: center;
     width: 40px;
     height: 40px;
-    background-color: rgba(153, 102, 204, 0.8);
-    color: #000000;
+    background-color: #ddd;
+    color: #333333;
     border: none;
     border-radius: 50%;
     text-decoration: none;
@@ -294,7 +321,7 @@ footer p {
 }
 
 .back-to-top a:hover {
-    background-color: rgba(126, 84, 159, 0.8);
+    background-color: #bbb;
     opacity: 1;
 }
 
@@ -307,6 +334,7 @@ footer p {
 .back-to-top a:focus {
     outline: none;
 }
+
 .right-text {
     text-align: right;
 }
@@ -316,23 +344,47 @@ footer p {
     font-size: 5px;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3em;
-    color: #fff;
-    background: linear-gradient(45deg, #6666cc, #9966cc);
-    padding: 20px;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin: 20px 0;
-    transition: transform 0.3s ease;
+.styled-text {
+    font-family: 'Georgia', serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    padding: 10px;
+    border-radius: 7px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.styled-text {
-    font-size: 1.1em;
-    line-height: 1.6;
-    color: #ffefef;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.step-links {
+    display: flex;
+    align-items: center;
+}
+
+.step-links a,
+.step-links span {
+    margin: 0 5px;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #f0f0f0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.4s ease, color 0.3s ease;
+}
+
+.step-links a:hover {
+    background-color: #f0f0f0;
+    color: #212121;
+}
+
+.step-links .current {
+    font-weight: bold;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
 }

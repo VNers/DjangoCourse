@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sungrilla{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: Cambria, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('{% static "images/backk.jpg" %}') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" alt="Sungrilla Secret Beach"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Головна</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'locations' %}">Локації</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'menu' %}">Меню</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'price' %}">Ціни</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'booking' %}">Бронювання</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'how_to_find_us' %}">Контакти</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'cart' %}">Корзина</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Вихід</a></li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Вхід</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'register' %}">Реєстрація</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+        {% block buttons %}
+        <!-- Navigation buttons can go here -->
+        {% endblock %}
+    <main class="container">
+        {% block content %}
+        <!-- Main content goes here -->
+        {% endblock %}
+    </main>
+
+    <footer class="bg-light py-3 mt-4">
+            <p class="text-center">&copy; 2024 Sungrilla. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" defer></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" defer></script>
+
+    {% block scripts %}
+    <!-- Additional scripts can be included here -->
+    {% endblock %}
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <a href="#top" class="right-text" id="back-to-top">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="inline-block w-4 h-4 mr-1">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+            </svg>
+        </a>
+    </div>
+</body>
+</html>

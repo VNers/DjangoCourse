@@ -1,105 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locations</title>
-    {% load static %}
-    <style>
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em; 
-            color: #1b1b1b; 
-            background: linear-gradient(45deg, #6666cc, #9966cc); 
-            padding: 10px;
-            text-align: center;
-            border-radius: 10px; 
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            margin: 20px 0;
-        }
-        .styled-text {
-            font-size: 1.1em;
-            line-height: 1.6;
-            color: #ffefef;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        nav {
-            display: flex;
-            justify-content: space-around;
-            background: linear-gradient(45deg, #6666cc, #9966cc);
-            padding: 10px 0;
-            border-radius: 5px;
-        }
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Локації - Sungrilla{% endblock %}
 
-        nav a {
-            color: #1b1b1b;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 3px;
-            transition: background-color 0.3s ease;
-        }
-
-        nav a:hover {
-            background-color: #9966cc;
-        }
-    </style>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <header>
-        <nav class="home-link">
-            <a href="{% url 'home' %}"><i class="fas fa-home"></i></a>
-        </nav>
-        <h1>Локації</h1>
-    </header>    
-        <nav>
-            <a href="#family_zone" class="styled-text">Сімейна зона</a>
-            <a href="#adult_zone" class="styled-text">Зона 18+</a>
-            <a href="#bar_zone" class="styled-text">Бар</a>
-            <a href="#terrace_zone" class="styled-text">Тераса</a>
-        </nav>
-    
+{% block buttons %}
+    <nav class="nav-buttons">
+        <a href="#family_zone" class="nav-buttons">Сімейна зона</a>
+        <a href="#adult_zone" class="nav-buttons">Зона 18+</a>
+        <a href="#bar_zone" class="nav-buttons">Бар</a>
+        <a href="#terrace_zone" class="nav-buttons">Тераса</a>
+    </nav>
+{% endblock %}
+{% block content %}
     <section>
         <div class="location" id="family_zone"> 
             <h2 class="styled-text">Сімейна зона</h2>
-            <a href="{% url 'family_zone' %}"></a>
-            <p class="styled-text">Сімейна зона призначена для відпочинку всієї родини. Тут ви зможете насолодитися спокоєм та комфортом, 
+            <p class="styled-text">Сімейна зона призначена для відпочинку всієї родини. Тут ви зможете насолодитися спокоєм та комфортом,
                 а діти матимуть можливість грати та розважатися.</p>
             <img src="{% static 'images/family.png' %}" alt="Family Zone">
         </div>
-        <div class="location" id="adult_zone"> 
+        <div class="location" id="adult_zone">
             <h3 class="styled-text">Зона 18+</h3>
-            <a href="{% url 'adult_zone' %}"></a>
-            <p class="styled-text">Зона 18+ -це зона для дорослих, де ви можете насолоджуватися атмосферою спокою та розслаблення без дітей під 
+            <p class="styled-text">Зона 18+ -це зона для дорослих, де ви можете насолоджуватися атмосферою спокою та розслаблення без дітей під
                 сучасну музику Dj. А також приймати участь у конкурсах та отримувати подарунки від закладу.</p>
             <img src="{% static 'images/adult_zone.png' %}" alt="Adult zone">
         </div>
-        <div class="location" id="bar_zone"> 
+        <div class="location" id="bar_zone">
             <h4 class="styled-text">Бар</h4>
-            <a href="{% url 'bar_zone' %}"></a>
             <p class="styled-text"> В барній зоні ви зможете насолоджуватися напоями та закусками в приємній компанії друзів або родини.</p>
             <img src="{% static 'images/bar_zone.jpg' %}" alt="Bar zone">
         </div>
-         <div class="location" id="terrace_zone"> 
+        <div class="location" id="terrace_zone">
             <h5 class="styled-text">Тераса</h5>
-            <a href="{% url 'terrace_zone' %}"></a>
-            <p class="styled-text">Тераса дозволяє насолоджуватися природою та красивим краєвидом під час обіду або вечері. 
+            <p class="styled-text">Тераса дозволяє насолоджуватися природою та красивим краєвидом під час обіду або вечері.
                 А також тут можна провести день народження, весілля, корпоратив та усі свята які забажаєте!</p>
-            <img src="{% static 'images/terrace.png' %}" alt="Bar zone">
+            <img src="{% static 'images/terrace.png' %}" alt="Terrace zone">
          </div>
+       <p class="styled-text">
+        <b><span>#keepitsecret</span></b>
+        Знайдіть нас в Instagram: <a href="https://www.instagram.com/sungrilla/" target="_blank" style="color: #1b1b1b;">@sungrilla</a>
+    </p>
     </section>
-    <div class="back-to-top">
-        <a href="#top" class="right-text" id="back-to-top">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="inline-block w-4 h-4 mr-1">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-            </svg>
-        </a>
-    </div>
-     <footer>
-         <p>Контакти: +38 (073) 187 74 79</p>
-         <p>Адреса: Набережно-Хрещатицька вулиця, 10, Київ, Україна.</p>
-    </footer>
-</body>
-</html>
+{% endblock %}

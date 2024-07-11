@@ -1,3 +1,4 @@
+import datetime
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.core.paginator import Paginator
@@ -9,6 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import Product, Cart, CartItem, Category
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
+from django.utils import timezone
 
 
 def home(request):
@@ -29,12 +31,23 @@ def price(request):
 
 def booking(request):
     products = Product.objects.all().order_by('category')
-    paginator = Paginator(products, 20)
+    paginator = Paginator(products, 8)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     request.session['last_visited_page'] = request.get_full_path()
 
-    return render(request, 'sungrilla/booking.html', {'products': page_obj})
+    selected_category = request.GET.get('category', '')
+
+    if selected_category:
+        products = Product.objects.filter(category__name=selected_category).order_by('category')
+        paginator = Paginator(products, 20)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+    categories = Category.objects.all()
+
+    return render(request, 'sungrilla/booking.html',
+                  {'products': page_obj, 'categories': categories, 'selected_category': selected_category})
 
 
 def register(request):
@@ -70,6 +83,13 @@ def logout_view(request):
     return redirect('home')
 
 
+def create_cart(request):
+    naive_datetime = datetime.datetime.now()
+    aware_datetime = timezone.make_aware(naive_datetime)
+    cart = Cart(created_at=aware_datetime)
+    cart.save()
+
+
 @login_required
 def add_to_cart(request, product_id):
     product = get_object_or_404(Product, id=product_id)
@@ -99,6 +119,7 @@ def update_cart(request, cart_item_id):
         else:
             return JsonResponse({'error_message': 'Для перезамовлення товару потрібно увійти в систему.'}, status=403)
 
+
 @login_required
 def remove_from_cart(request, cart_item_id):
     cart_item = get_object_or_404(CartItem, id=cart_item_id, cart__user=request.user)
@@ -126,15 +147,31 @@ def cart_view(request):
     })
 
 
+@login_required
 def confirm_payment(request):
     cart, created = Cart.objects.get_or_create(user=request.user)
     cart_items = CartItem.objects.filter(cart__user=request.user)
     total_amount = sum(item.total_price for item in cart_items)
-    if request.method == 'GET':
-        context = {
-            'total_amount': total_amount
-        }
-        return render(request, 'sungrilla/confirm_payment.html', context)
+
+    if request.method == 'POST':
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            phone_number = form.cleaned_data['phone_number']
+
+            context = {
+                'total_amount': total_amount,
+                'phone_number': phone_number,
+            }
+            return HttpResponse(request, 'sungrilla/confirm_payment.html', context)
+
+    else:
+        form = UserRegisterForm()
+
+    context = {
+        'form': form,
+        'total_amount': total_amount,
+    }
+    return render(request, 'sungrilla/confirm_payment.html', context)
 
 
 @csrf_exempt
@@ -165,4 +202,3 @@ def process_payment(request):
 
 def how_to_find_us(request):
     return render(request, 'sungrilla/find_us.html')
-

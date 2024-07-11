@@ -1,47 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product List</title>
-    {% load static %}
-    <style>
-        body {
-            background: linear-gradient(rgba(205, 193, 255, 0.8), rgba(255, 255, 255, 0.8));
-        }
-    </style>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body>
-    <header>
-        <nav class="home-link">
-            <a href="{% url 'home' %}"><i class="fas fa-home"></i></a>
-        </nav>
-        <div class="booking" id="booking">
-            <h1>Бронювання та передзамовлення</h1>
-        </div>  
-        <div class="nav-buttons">
-            <a href="{% url 'login' %}" class="nav-buttons">Вхід</a>
-            <a href="{% url 'register' %}" class="nav-buttons">Реєстрація</a>
-            <a href="{% url 'logout' %}" class="nav-buttons">Вихід</a>
-        </div>
-        <div id="login-message">
-            {% if error_message %}
-                <p>{{ error_message }}</p>
-            {% endif %}
-        </div>
-    </header>
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Product List{% endblock %}
+
+{% block content %}
+<header>
+    <div id="login-message">
+        {% if error_message %}
+            <p>{{ error_message }}</p>
+        {% endif %}
+    </div>
+</header>
+<main>
     <div class="booking" id="get_data"> 
         <h1>Меню передзамовлення</h1>
+         <form method="GET" action="">
+            <label form="category">Фільтрувати за категорією</label>
+            <select name="category" name="category">
+                <option value="" {% if not selected_category %}selected{% endif %}>Усі категорії</option>
+                <option value="POOL RELAX" {% if selected_category == 'POOL RELAX' %}selected{% endif %}>POOL RELAX</option>
+                <option value="STARTERS" {% if selected_category == 'STARTERS' %}selected{% endif %}>STARTERS</option>
+                <option value="SALADS" {% if selected_category == 'SALADS' %}selected{% endif %}>SALADS</option>
+                <option value="GRILL" {% if selected_category == 'GRILL' %}selected{% endif %}>GRILL</option>
+                <option value="BURGERS" {% if selected_category == 'BURGERS' %}selected{% endif %}>BURGERS</option>
+                <option value="PASTA" {% if selected_category == 'PASTA' %}selected{% endif %}>PASTA</option>
+                <option value="MAIN DISHES" {% if selected_category == 'MAIN DISHES' %}selected{% endif %}>MAIN DISHES</option>
+                <option value="SOUPS" {% if selected_category == 'SOUPS' %}selected{% endif %}>SOUPS</option>
+                <option value="SIDE DISHED" {% if selected_category == 'SIDE DISHED' %}selected{% endif %}>SIDE DISHED</option>
+                <option value="DESSERTS" {% if selected_category == 'DESSERTS' %}selected{% endif %}>DESSERTS</option>
+                <option value="MODERN COCKTAILS" {% if selected_category == 'MODERN COCKTAILS' %}selected{% endif %}>MODERN COCKTAILS</option>
+                <option value="MIXDRINK" {% if selected_category == 'MIXDRINK' %}selected{% endif %}>MIXDRINK</option>
+                <option value="CLASSIC COCKTAILS" {% if selected_category == 'CLASSIC COCKTAILS' %}selected{% endif %}>CLASSIC COCKTAILS</option>
+                <option value="GORDON'S COCKTAILS" {% if selected_category == 'GORDONS COCKTAILS' %}selected{% endif %}>GORDON'S COCKTAILS</option>
+                <option value="FINLANDIA COCKTAILS" {% if selected_category == 'FINLANDIA COCKTAILS' %}selected{% endif %}>FINLANDIA COCKTAILS</option>
+                <option value="JACK DANIEL'S COCKTAILS" {% if selected_category == 'JACK DANIELS COCKTAILS' %}selected{% endif %}>JACK DANIEL'S COCKTAILS</option>
+                <option value="NON ALCOHOL" {% if selected_category == 'NON ALCOHOL' %}selected{% endif %}>NON ALCOHOL</option>
+                <option value="SAN MARE SPARKLING WINE" {% if selected_category == 'SAN MARE SPARKLING WINE' %}selected{% endif %}>SAN MARE SPARKLING WINE</option>
+                <option value="SPARKLING WINE" {% if selected_category == 'SPARKLING WINE' %}selected{% endif %}>SPARKLING WINE</option>
+                <option value="CHAMPAGNE" {% if selected_category == 'CHAMPAGNE' %}selected{% endif %}>CHAMPAGNE</option>
+                <option value="WINES" {% if selected_category == 'WINES' %}selected{% endif %}>WINES</option>
+                <option value="SCOTCH WHISKY" {% if selected_category == 'SCOTCH WHISKY' %}selected{% endif %}>SCOTCH WHISKY</option>
+                <option value="BOURBON WHISKEY" {% if selected_category == 'BOURBON WHISKEY' %}selected{% endif %}>BOURBON WHISKEY</option>
+                <option value="TENNESSEE WHISKEY" {% if selected_category == 'TENNESSEE WHISKEY' %}selected{% endif %}>TENNESSEE WHISKEY</option>
+                <option value="IRISH WHISKEY" {% if selected_category == 'IRISH WHISKEY' %}selected{% endif %}>IRISH WHISKEY</option>
+                <option value="GIN" {% if selected_category == 'GIN' %}selected{% endif %}>GIN</option>
+                <option value="TEQUILA" {% if selected_category == 'TEQUILA' %}selected{% endif %}>TEQUILA</option>
+                <option value="ROM" {% if selected_category == 'ROM' %}selected{% endif %}>ROM</option>
+                <option value="COGNAC" {% if selected_category == 'COGNAC' %}selected{% endif %}>COGNAC</option>
+                <option value="BRANDY" {% if selected_category == 'BRANDY' %}selected{% endif %}>BRANDY</option>
+                <option value="VODKA FROM A VILLAGE" {% if selected_category == 'VODKA FROM A VILLAGE' %}selected{% endif %}>VODKA FROM A VILLAGE</option>
+                <option value="VODKA" {% if selected_category == 'VODKA' %}selected{% endif %}>VODKA</option>
+                <option value="FINLANDIA VODKA" {% if selected_category == 'FINLANDIA VODKA' %}selected{% endif %}>FINLANDIA VODKA</option>
+                <option value="VERMOUTH" {% if selected_category == 'VERMOUTH' %}selected{% endif %}>VERMOUTH</option>
+                <option value="ICE COLD SHOT" {% if selected_category == 'ICE COLD SHOT' %}selected{% endif %}>ICE COLD SHOT</option>
+                <option value="ABSENT" {% if selected_category == 'ABSENT' %}selected{% endif %}>ABSENT</option>
+                <option value="LIQUOR" {% if selected_category == 'LIQUOR' %}selected{% endif %}>LIQUOR</option>
+                <option value="BEER" {% if selected_category == 'BEER' %}selected{% endif %}>BEER</option>
+                <option value="COLD DRINKS" {% if selected_category == 'COLD DRINKS' %}selected{% endif %}>COLD DRINKS</option>
+                <option value="COFFEE" {% if selected_category == 'COFFEE' %}selected{% endif %}>COFFEE</option>
+            </select>
+            <button type="submit" class="booking-button">Застосувати фільтр</button>
+        </form>
         <table>
             <thead>
                 <tr>
                     <th>Категорія</th>
-                    <th>Назва продукту/товару</th>
+                    <th>Назва</th>
                     <th>Розмір порції</th>
+                    <th></th>
                     <th>Ціна</th>
-                    <th>Дія</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -50,12 +77,13 @@
                     <td>{{ product.category }}</td>
                     <td>{{ product.name }}</td>
                     <td>{{ product.portion_size }}</td>
+                    <td><img src="{% static product.image %}" alt="{{ product.name }}"></td>
                     <td>{{ product.price }}</td>
                     <td>
                         {% if user.is_authenticated %}
                             <form method="post" action="{% url 'add_to_cart' product.id %}">
                                 {% csrf_token %}
-                                <button type="submit">Додати до кошику</button>
+                                <button type="submit" class="booking-button">Додати до кошику</button>
                             </form>
                         {% else %}
                             <p>Для додавання товару до кошика потрібно <a href="{% url 'login' %}">увійти</a> в систему.</p>
@@ -84,18 +112,7 @@
         </div>
     </div>
     <div class="cart-navigation">
-        <button type="button" class="btn" onclick="window.location.href='{% url 'cart' %}'">Перейти до корзини</button>
+        <button type="button" class="booking-button" onclick="window.location.href='{% url 'cart' %}'">Перейти до корзини</button>
     </div>
-    <div class="back-to-top">
-        <a href="#top" class="right-text" id="back-to-top">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20" stroke="currentColor" class="inline-block w-4 h-4 mr-1">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
-            </svg>
-        </a>
-    </div>
-    <footer>
-        <p>Контакти: +38 (073) 187 74 79</p>
-        <p>Адреса: Набережно-Хрещатицька вулиця, 10, Київ, Україна.</p>
-    </footer>
-</body>
-</html>
+</main>
+{% endblock %}
